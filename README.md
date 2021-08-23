@@ -8,7 +8,7 @@
 
 # Rick&MortyAPI
 
-Consuming R&M API with React fetch with modal and "more" button function (not yet).
+Consuming R&M API with React fetch with modal, "more" button function (not yet) and search by name (not yet).
 
 HTML<br>
 CSS<br>
