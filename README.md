@@ -1,6 +1,6 @@
 <div align="center">
   <h3>
-    <a href="https://joncat86.github.io/pokeGame/">
+    <a href="https://joncat86.github.io/RickAndMortyAPI/">
       Demo
     </a>
   </h3>
