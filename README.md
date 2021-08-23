@@ -10,7 +10,7 @@
 
 Consuming R&M API with React fetch with modal and "more" button function (not yet).
 
-HTML/n
-CSS
-JavaScript
+HTML<br>
+CSS<br>
+JavaScript<br>
 React.js
