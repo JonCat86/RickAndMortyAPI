@@ -20,10 +20,15 @@ body {
 /* HEADER */ /* #region */
 header {
   width: 100%;
-  height: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.header-img {
+  width: 400px;
+  margin-bottom: 20px;
 }
 
 header ul {
@@ -46,6 +51,12 @@ header li:hover {
   text-shadow: 0px 0px 15px #aaffaa;
 }
 
+@media screen and (max-width: 768px) {
+  .header-img {
+    width: 300px;
+  }
+}
+
 /* #endregion */
 
 /* CHARACTERS */ /* #region */
@@ -53,18 +64,34 @@ header li:hover {
   width: 100%;
   color: white;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .char-gallery h1 {
   font-family: "Patrick Hand", cursive;
-  font-size: 55px;
+  font-size: 75px;
   width: 100%;
   text-align: center;
   padding: 20px 0;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   color: #39ff14;
   -webkit-text-stroke: 0.5px darkgreen;
   text-shadow: 0px 0px 7px #aaffaa;
+}
+
+.search-bar {
+  width: 250px;
+  margin-bottom: 20px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  background-color: #39ff1410;
+  border-bottom: 1px solid #39ff14;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #eee;
 }
 
 .char-gallery-container {
@@ -184,6 +211,31 @@ header li:hover {
   border-bottom-right-radius: 4px;
 }
 
+@media screen and (max-width: 768px) {
+  .char-gallery {
+    padding: 0 10px;
+  }
+
+  .char-gallery h1 {
+    font-size: 50px;
+    padding: 10px 0;
+  }
+
+  .char-card {
+    width: 120px;
+    height: 130px;
+    margin: 25px 15px;
+  }
+
+  .char-img-container {
+    margin-bottom: 4px;
+  }
+
+  .char-card h2 {
+    font-size: 15px;
+  }
+}
+
 /* #endregion */
 
 /* MODAL */ /* #region */
@@ -245,6 +297,36 @@ header li:hover {
   font-size: 18px;
 }
 
+@media screen and (max-width: 900px) {
+  .char-modal-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .char-modal-img {
+    max-width: 80%;
+    margin: 0 10px;
+  }
+
+  .char-modal-info {
+    margin: 0 14px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .char-modal-info h2 {
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .char-modal-info th {
+    font-size: 18px;
+  }
+  .char-modal-info td {
+    font-size: 17px;
+  }
+}
+
 /* #endregion */
 
 /* EPISODES */ /* #region */
@@ -289,10 +371,59 @@ header li:hover {
 .episode-card p {
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
 }
 
 .episode-card p:nth-child(3) {
   text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+  .episode-list {
+    padding: 0 15px;
+  }
+
+  .episode-list h1 {
+    font-size: 50px;
+    padding: 5px 0;
+  }
+
+  .episode-card {
+    height: 55px;
+    padding: 0 5px;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+
+  .episode-card:hover {
+    background-color: #aaffaa;
+    box-shadow: 0 0 15px #39ff14;
+  }
+
+  .episode-card p {
+    font-size: 16px;
+  }
+
+  .episode-card p:nth-child(1) {
+    font-size: 16px;
+  }
+
+  .episode-card p:nth-child(3) {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .episode-card p {
+    font-size: 14px;
+  }
+
+  .episode-card p:nth-child(1) {
+    font-size: 12px;
+  }
+
+  .episode-card p:nth-child(3) {
+    font-size: 12px;
+  }
 }
 
 /* #endregion */
