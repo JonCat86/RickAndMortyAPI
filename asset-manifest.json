@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/RickAndMortyAPI/static/css/main.75d6cf04.chunk.css",
-    "main.js": "/RickAndMortyAPI/static/js/main.d247cb57.chunk.js",
-    "main.js.map": "/RickAndMortyAPI/static/js/main.d247cb57.chunk.js.map",
+    "main.css": "/RickAndMortyAPI/static/css/main.906536a5.chunk.css",
+    "main.js": "/RickAndMortyAPI/static/js/main.00691ea9.chunk.js",
+    "main.js.map": "/RickAndMortyAPI/static/js/main.00691ea9.chunk.js.map",
     "runtime-main.js": "/RickAndMortyAPI/static/js/runtime-main.267337d6.js",
     "runtime-main.js.map": "/RickAndMortyAPI/static/js/runtime-main.267337d6.js.map",
-    "static/js/2.9358a529.chunk.js": "/RickAndMortyAPI/static/js/2.9358a529.chunk.js",
-    "static/js/2.9358a529.chunk.js.map": "/RickAndMortyAPI/static/js/2.9358a529.chunk.js.map",
+    "static/js/2.86f92d4e.chunk.js": "/RickAndMortyAPI/static/js/2.86f92d4e.chunk.js",
+    "static/js/2.86f92d4e.chunk.js.map": "/RickAndMortyAPI/static/js/2.86f92d4e.chunk.js.map",
     "index.html": "/RickAndMortyAPI/index.html",
-    "static/css/main.75d6cf04.chunk.css.map": "/RickAndMortyAPI/static/css/main.75d6cf04.chunk.css.map",
-    "static/js/2.9358a529.chunk.js.LICENSE.txt": "/RickAndMortyAPI/static/js/2.9358a529.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/RickAndMortyAPI/static/media/background3.c3909134.jpg"
+    "static/css/main.906536a5.chunk.css.map": "/RickAndMortyAPI/static/css/main.906536a5.chunk.css.map",
+    "static/js/2.86f92d4e.chunk.js.LICENSE.txt": "/RickAndMortyAPI/static/js/2.86f92d4e.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/RickAndMortyAPI/static/media/background3.c3909134.jpg",
+    "static/media/logo.027363c0.png": "/RickAndMortyAPI/static/media/logo.027363c0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.267337d6.js",
-    "static/js/2.9358a529.chunk.js",
-    "static/css/main.75d6cf04.chunk.css",
-    "static/js/main.d247cb57.chunk.js"
+    "static/js/2.86f92d4e.chunk.js",
+    "static/css/main.906536a5.chunk.css",
+    "static/js/main.00691ea9.chunk.js"
   ]
 }
