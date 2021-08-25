@@ -11,7 +11,6 @@ const CharGallery = () => {
   const [modalOn, setModalOn] = useState("");
   const [data, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [next, setNext] = useState(null);
 
   // fetch for Modal
   useEffect(() => {
@@ -27,7 +26,6 @@ const CharGallery = () => {
     const fetchData = async () => {
       const res = await helpFetch("https://rickandmortyapi.com/api/character");
       setData(res.results);
-      setNext(res.info.next);
       setIsLoaded(true);
     };
     fetchData();
@@ -40,12 +38,12 @@ const CharGallery = () => {
     const searchFetch = async (url) => {
       const res = await helpFetch(url);
       !res.error ? setData((data) => [...data, ...res.results]) : setData([]);
-      res.info.next ? searchFetch(res.info.next) : setIsLoaded(true);
+      if (!res.error && res.info.next) searchFetch(res.info.next);
+      else setIsLoaded(true);
     };
     const fetchData = async () => {
       const res = await helpFetch("https://rickandmortyapi.com/api/character");
       setData(res.results);
-      setNext(res.info.next);
       setIsLoaded(true);
     };
     search === ""
@@ -71,11 +69,9 @@ const CharGallery = () => {
               setModalOn={setModalOn}
             />
           ))}
-        {/* els condicionals estan bé?? */}
-        {(data && data.length === 0) ||
-          (!isLoaded && (
-            <img className="portal" src={rickandmortyportal} alt="portal" />
-          ))}
+        {(!isLoaded || data.length === 0) && (
+          <img className="portal" src={rickandmortyportal} alt="portal" />
+        )}
       </div>
       {charData && (
         <CharModal
