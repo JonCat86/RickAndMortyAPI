@@ -3,21 +3,21 @@ import { helpFetch } from "../helper/helpFetch";
 import CharCard from "./CharCard";
 import CharModal from "./CharModal";
 import Searcher from "./Searcher";
+import rickandmortyportal from "../assets/rickandmortyportal.png";
 
-const CharGallery = ({ section }) => {
+const CharGallery = () => {
   const [charData, setCharData] = useState(null);
   const [charUrl, setCharUrl] = useState(null);
   const [modalOn, setModalOn] = useState("");
   const [data, setData] = useState(null);
-  const [page, setPage] = useState(1);
-  const [filter, setFilter] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [next, setNext] = useState(null);
 
   // fetch for Modal
   useEffect(() => {
     const fetchChar = async () => {
-      const res = await fetch(charUrl);
-      const json = await res.json();
-      setCharData(json);
+      const fetchData = await helpFetch(charUrl);
+      setCharData(fetchData);
     };
     charUrl && fetchChar();
   }, [charUrl]);
@@ -25,24 +25,54 @@ const CharGallery = ({ section }) => {
   // main fetch
   useEffect(() => {
     const fetchData = async () => {
-      const res = await helpFetch(section, page, filter);
-      setData(res);
+      const res = await helpFetch("https://rickandmortyapi.com/api/character");
+      setData(res.results);
+      setNext(res.info.next);
+      setIsLoaded(true);
     };
     fetchData();
-  }, [section, page, filter]);
+  }, []);
 
   // search
   const handleSearch = (search) => {
-    setPage(1);
-    setFilter(search.toLowerCase());
+    setIsLoaded(false);
+    setData([]);
+    const searchFetch = async (url) => {
+      const res = await helpFetch(url);
+      !res.error ? setData((data) => [...data, ...res.results]) : setData([]);
+      res.info.next ? searchFetch(res.info.next) : setIsLoaded(true);
+    };
+    const fetchData = async () => {
+      const res = await helpFetch("https://rickandmortyapi.com/api/character");
+      setData(res.results);
+      setNext(res.info.next);
+      setIsLoaded(true);
+    };
+    search === ""
+      ? fetchData()
+      : searchFetch(
+          `https://rickandmortyapi.com/api/character/?name=${search}`
+        );
   };
+  // useEffect(() => {
+  //   setIsLoaded(false);
+  //   setData([]);
+  //   const dataFetch = async (url) => {
+  //     const res = await helpFetch(url);
+  //     !res.error ? setData((data) => [...data, ...res.results]) : setData([]);
+  //     res.info.next ? dataFetch(res.info.next) : setIsLoaded(true);
+  //   };
+  //   dataFetch(`https://rickandmortyapi.com/api/character/?name=${filter}`);
+  // }, [filter]);
+
+  // more btn
 
   return (
     <section className="char-gallery">
       <h1>CHARACTERS</h1>
       <Searcher handleSearch={handleSearch} />
       <div className="char-gallery-container">
-        {data &&
+        {isLoaded &&
           data.map((el) => (
             <CharCard
               key={el.id}
@@ -50,6 +80,11 @@ const CharGallery = ({ section }) => {
               setCharUrl={setCharUrl}
               setModalOn={setModalOn}
             />
+          ))}
+        {/* els condicionals estan bé?? */}
+        {(data && data.length === 0) ||
+          (!isLoaded && (
+            <img className="portal" src={rickandmortyportal} alt="portal" />
           ))}
       </div>
       {charData && (

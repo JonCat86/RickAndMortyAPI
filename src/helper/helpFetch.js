@@ -1,7 +1,7 @@
-export const helpFetch = async (section, page, filter) => {
-  const res = await fetch(
-    `https://rickandmortyapi.com/api/${section}/?page=${page}&name=${filter}`
-  );
-  const json = await res.json();
-  return json.results;
+export const helpFetch = async (url) => {
+  try {
+    const res = await fetch(url);
+    const json = await res.json();
+    return json;
+  } catch (error) {}
 };

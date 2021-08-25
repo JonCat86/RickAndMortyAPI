@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CharGallery from "./components/CharGallery";
-import EpisodesList from "./components/EpisodeList";
+import EpisodesList from "./components/EpisodesList";
 import Header from "./components/Header";
 
 const App = () => {
@@ -9,11 +9,7 @@ const App = () => {
   return (
     <div>
       <Header setSection={setSection} />
-      {section === "character" ? (
-        <CharGallery section={section} />
-      ) : (
-        <EpisodesList section={section} />
-      )}
+      {section === "character" ? <CharGallery /> : <EpisodesList />}
     </div>
   );
 };

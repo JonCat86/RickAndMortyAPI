@@ -69,12 +69,15 @@ header li:hover {
   align-items: center;
 }
 
+.portal {
+  width: 500px;
+}
+
 .char-gallery h1 {
   font-family: "Patrick Hand", cursive;
   font-size: 75px;
   width: 100%;
   text-align: center;
-  padding: 20px 0;
   letter-spacing: 6px;
   color: #39ff14;
   -webkit-text-stroke: 0.5px darkgreen;
@@ -337,14 +340,26 @@ header li:hover {
 
 .episode-list h1 {
   font-family: "Patrick Hand", cursive;
-  font-size: 55px;
+  font-size: 75px;
   width: 100%;
   text-align: center;
   padding: 20px 0;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   color: #39ff14;
   -webkit-text-stroke: 0.5px darkgreen;
   text-shadow: 0px 0px 7px #aaffaa;
+}
+
+.episode-list h2 {
+  margin: auto;
+  margin-top: 40px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 35px;
+  width: 95%;
+  max-width: 800px;
+  letter-spacing: 3px;
+  color: #39ff14;
+  border-bottom: 1px solid #39ff14;
 }
 
 .episode-card {
@@ -378,7 +393,7 @@ header li:hover {
   text-align: right;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   .episode-list {
     padding: 0 15px;
   }
