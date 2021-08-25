@@ -54,16 +54,6 @@ const CharGallery = () => {
           `https://rickandmortyapi.com/api/character/?name=${search}`
         );
   };
-  // useEffect(() => {
-  //   setIsLoaded(false);
-  //   setData([]);
-  //   const dataFetch = async (url) => {
-  //     const res = await helpFetch(url);
-  //     !res.error ? setData((data) => [...data, ...res.results]) : setData([]);
-  //     res.info.next ? dataFetch(res.info.next) : setIsLoaded(true);
-  //   };
-  //   dataFetch(`https://rickandmortyapi.com/api/character/?name=${filter}`);
-  // }, [filter]);
 
   // more btn
 
@@ -101,13 +91,3 @@ const CharGallery = () => {
 };
 
 export default CharGallery;
-
-/* {data &&
-          data.map((el) => (
-            <CharCard
-              key={el.id}
-              char={el}
-              setCharUrl={setCharUrl}
-              setModalOn={setModalOn}
-            />
-          ))} */
