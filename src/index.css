@@ -240,6 +240,21 @@ header li:hover {
   }
 }
 
+.showBtn {
+  width: 120px;
+  height: 35px;
+  border-radius: 3%;
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #39ff1415;
+  border: 2px solid #39ff14;
+  color: #39ff14;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
 /* #endregion */
 
 /* MODAL */ /* #region */
@@ -375,7 +390,7 @@ header li:hover {
   border: 2px solid #39ff14;
   background-color: #ddffdd;
   color: #111;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .episode-card:hover {

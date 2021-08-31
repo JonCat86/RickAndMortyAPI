@@ -11,6 +11,7 @@ const CharGallery = () => {
   const [modalOn, setModalOn] = useState("");
   const [data, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [page, setPage] = useState(1);
 
   // fetch for Modal
   useEffect(() => {
@@ -24,6 +25,7 @@ const CharGallery = () => {
   // main fetch
   useEffect(() => {
     const fetchData = async () => {
+      setPage(1);
       const res = await helpFetch("https://rickandmortyapi.com/api/character");
       setData(res.results);
       setIsLoaded(true);
@@ -34,6 +36,7 @@ const CharGallery = () => {
   // search
   const handleSearch = (search) => {
     setIsLoaded(false);
+    setPage(1);
     setData([]);
     const searchFetch = async (url) => {
       const res = await helpFetch(url);
@@ -52,6 +55,20 @@ const CharGallery = () => {
           `https://rickandmortyapi.com/api/character/?name=${search}`
         );
   };
+
+  const handleClick = () => {
+    setPage(page + 1);
+  };
+
+  useEffect(() => {
+    const showMore = async () => {
+      const res = await helpFetch(
+        `https://rickandmortyapi.com/api/character/?page=${page}`
+      );
+      setData((data) => [...data, ...res.results]);
+    };
+    page > 1 && showMore();
+  }, [page]);
 
   // more btn
 
@@ -82,6 +99,9 @@ const CharGallery = () => {
           setCharUrl={setCharUrl}
         />
       )}
+      <button className="showBtn" onClick={handleClick}>
+        Show More
+      </button>
     </section>
   );
 };
